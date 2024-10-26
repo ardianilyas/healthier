@@ -6,6 +6,6 @@ Healthier is a website that allows you to order medicine at pharmacy via online.
 
 - [x] Login
 - [x] Register
-- [] Order medicine
-- [] Consultation
-- [] Membership
+- [ ] Order medicine
+- [ ] Consultation
+- [ ] Membership
