@@ -40,9 +40,9 @@
             </div>
             @endauth
             @guest
-            <ul class="flex justify-center items-center gap-2">
-                <li><a href="/login">Login</a></li>
-                <li><a href="">Register</a></li>
+            <ul class="flex justify-center items-center gap-2 mt-3 md:mt-0">
+                <li><x-primary-button href="/login" class="bg-gradient-to-br from-[#3A8EF6] to-[#6F3AFA] text-white font-medium px-5 py-2 rounded-full">Login</x-primary-button></li>
+                <li><x-primary-button href="/register" class="bg-gradient-to-br from-[#3A8EF6] to-[#6F3AFA] text-white font-medium px-5 py-2 rounded-full">Register</x-primary-button></li>
             </ul>
             @endguest
         </div>
