@@ -1,4 +1,4 @@
-<footer class="bg-[#0A0E31] text-white text-sm w-full absolute bottom-0 right-0">
+<footer class="bg-[#0A0E31] text-white text-sm w-full">
     <div class="w-full px-8 md:px-10 lg:px-12 py-16">
         <div class="w-full grid grid-cols-8">
             <div class="col-span-6">
@@ -24,7 +24,6 @@
                 </ul>
             </div>
         </div>
-        <div class="w-full my-6 bg-gray-500 h-[0.5px]"></div>
-        <p class="text-center font-medium">Copyright &copy; 2024</p>
+        <p class="font-medium text-center">Copyright &copy; 2024</p>
     </div>
 </footer>
