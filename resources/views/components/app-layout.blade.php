@@ -10,11 +10,11 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="antialiased relative bg-gray-50 min-h-screen w-full">
+    <body class="antialiased relative flex flex-col justify-between bg-gray-50 min-h-screen w-full">
 
         <x-navbar />
 
-        <div class="px-8 md:px-10 lg:px-10">
+        <div class="px-8 md:px-10 lg:px-10 py-12">
             {{ $slot }}
         </div>
 
