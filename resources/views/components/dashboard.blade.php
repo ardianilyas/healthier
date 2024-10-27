@@ -3,13 +3,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ $title ?? "Healthier - Dashboard" }}</title>
+        <title>{{ $title ?? 'Dashboard - Healthier' }}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('drugs.png') }}">
 
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
     <body class="antialiased bg-gray-50 min-h-screen w-full">
 
         <!-- ========== MAIN CONTENT ========== -->
@@ -48,7 +57,7 @@
                     <nav class="hs-accordion-group p-3 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
                         <ul class="flex flex-col space-y-1">
                             <li>
-                                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white {{ request()->routeIs('dashboard.index') ? 'bg-white/10' : '' }}" href="dashboard">
+                                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white {{ request()->routeIs('dashboard.index') ? 'bg-white/10' : '' }}" href="/dashboard">
                                     <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                                     Dashboard
                                 </a>
@@ -70,8 +79,18 @@
         <!-- End Sidebar -->
         
         <!-- Content -->
-        <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
-            {{ $slot }}
+        <div class="w-full pt-8 px-4 sm:px-6 md:px-8 lg:ps-72">
+            @if(isset($title))
+                <h2 class="text-2xl font-medium text-neutral-800">{{ $title }}</h2>
+            @endif
+            
+            @if(isset($desc))
+                <p class="text-sm text-neutral-600 leading-loose font-light">{{ $desc }}</p>
+            @endif
+
+            <div class="py-8">
+                {{ $slot }}
+            </div>
             <!-- your content goes here ... -->
         </div>
         <!-- End Content -->
