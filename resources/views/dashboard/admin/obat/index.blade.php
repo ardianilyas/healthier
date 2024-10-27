@@ -8,6 +8,9 @@
         <x-card>
             <div class="h-full flex flex-col justify-between">
                 <div>
+                    @if (isset($obat->image))
+                    <img src="{{ asset('storage/obat/'. $obat->image) }}" alt="" class="w-20">                      
+                    @endif
                     <h4 class="text-xl text-neutral-800 font-medium">{{ $obat->nama }}</h4>
                     <p class="text-sm text-neutral-600 mt-1 line-clamp-2">{{ $obat->keterangan }}</p>
                 </div>
