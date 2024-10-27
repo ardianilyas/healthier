@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ObatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -18,9 +19,11 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::prefix('dashboard')->name('dashboard')->group(function () {
+    Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::get('/', function () {
             return view('dashboard.index');
-        });
+        })->name('index');
+
+        Route::resource('obat', ObatController::class);
     });
 });

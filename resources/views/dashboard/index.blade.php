@@ -1,3 +1,3 @@
 <x-dashboard>
-    Dashboard page
+    <x-slot:title>Dashboard page</x-slot:title>
 </x-dashboard>
