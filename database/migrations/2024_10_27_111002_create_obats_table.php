@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('obat', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('image')->nullable();
             $table->integer('harga');
             $table->string('satuan');
             $table->string('keterangan');
