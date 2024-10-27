@@ -1,4 +1,4 @@
-<div class="w-full py-6 bg-white shadow-sm flex justify-center items-center">
+<div class="w-full py-2 bg-white shadow-sm flex justify-center items-center">
     <div x-data="{ open: false }" class="w-full px-8 md:px-10 lg:px-12 flex flex-col md:flex-row justify-between items-start md:items-center">
         <div class="w-full md:w-auto flex justify-between items-center md:block">
             <h1 class="text-2xl font-semibold">Healthier</h1>
@@ -21,12 +21,13 @@
         <div :class="open ? '' : 'hidden md:block' ">
             @auth
             <div class="hs-dropdown relative inline-flex">
-                <button id="hs-dropdown-default" type="button" class="hs-dropdown-toggle p-1 flex items-end justify-end overflow-hidden gap-x-2 text-sm font-medium rounded-full bg-gray-100 text-gray-800 shadow-sm hover:bg-gray-200 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                    <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Alexander" class="w-12 rounded-full bottom-0" alt="avatar" />
+                <button id="hs-dropdown-default" type="button" class="hs-dropdown-toggle p-1 flex items-end justify-end overflow-hidden gap-x-2 text-sm font-medium rounded-full transition-all ease-in-out bg-gray-100/70 text-gray-800 shadow-sm hover:bg-gray-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                    <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Alexander" class="w-10 rounded-full bottom-0" alt="avatar" />
                 </button>
                 
                 <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
                     <div class="p-1 space-y-0.5">
+                        <p class="p-2 font-medium">Welcome, {{ auth()->user()->name }}</p>
                         <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700" href="/dashboard">
                             Dashboard
                         </a>
