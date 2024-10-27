@@ -1,5 +1,5 @@
 <footer class="bg-[#0A0E31] text-white text-sm w-full">
-    <div class="w-full px-8 md:px-10 lg:px-12 py-16">
+    <div class="w-full px-8 md:px-10 lg:px-12 pt-10 pb-4">
         <div class="w-full grid grid-cols-8">
             <div class="col-span-6">
                 <h1>Healthier</h1>
