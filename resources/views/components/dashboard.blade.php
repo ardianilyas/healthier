@@ -39,7 +39,7 @@
             <div class="relative flex flex-col h-full max-h-full">
                 <div class="px-8 pt-4">
                     <!-- Logo -->
-
+                    <a href="/" class="text-white text-2xl font-semibold">Healthier</a>
                     <!-- End Logo -->
                 </div>
 
