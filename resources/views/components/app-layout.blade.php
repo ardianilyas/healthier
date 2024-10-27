@@ -19,15 +19,19 @@
             font-family: "Poppins", sans-serif;
         }
     </style>
-    <body class="antialiased relative flex flex-col justify-between bg-gray-50 min-h-screen w-full">
+    <body class="antialiased relative bg-gray-50">
+        <x-notify::notify />
+        <div class="flex flex-col justify-between min-h-screen w-full">
+            <x-navbar />
 
-        <x-navbar />
-
-        <div class="px-8 md:px-10 lg:px-10 py-12">
-            {{ $slot }}
+            <div class="px-8 md:px-10 lg:px-10 py-12">
+                <x-notify::notify />
+                {{ $slot }}
+            </div>
+    
+            <x-footer />
         </div>
 
-        <x-footer />
 
     </body>
 </html>

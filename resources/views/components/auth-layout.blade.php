@@ -6,6 +6,7 @@
         <title>{{ $pageTitle ?? "Auth" }}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('drugs.png') }}">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @notifyCss
     </head>
     <body class="antialiased relative bg-gray-50 min-h-screen w-full">
         <div class="min-h-screen w-full flex">
@@ -26,5 +27,7 @@
                 {{-- {{ $image }} --}}
             </div>
         </div>
+        <x-notify::notify />
+        @notifyJs
     </body>
 </html>

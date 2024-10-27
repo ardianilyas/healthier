@@ -17,6 +17,7 @@ class LoginController extends Controller
         
         if(Auth::attempt($data)) {
             $request->session()->regenerate();
+            notify()->success("Login successfully");
             return redirect()->intended();
         } else {
             return back()->withErrors([
@@ -27,6 +28,7 @@ class LoginController extends Controller
 
     public function logout() {
         Auth::logout();
+        notify()->success('Logout successfully');
         return back();
     }
 }
