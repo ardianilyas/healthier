@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Obat;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'ardian@developer.com',
             'password' => bcrypt('developer'),
         ]);
+
+        Obat::factory(6)->create();
 
         $developer = Role::create(['name' => 'developer']);
         $admin = Role::create(['name' => 'Admin']);
