@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\KaryawanController;
 use App\Http\Controllers\Admin\ObatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
@@ -24,6 +25,9 @@ Route::middleware('auth')->group(function () {
             return view('dashboard.index');
         })->name('index');
 
-        Route::resource('obat', ObatController::class);
+        Route::middleware('role:Admin|developer')->group(function() {
+            Route::resource('obat', ObatController::class);
+            Route::resource('karyawan', KaryawanController::class);
+        });
     });
 });

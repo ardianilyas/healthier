@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
 
         Obat::factory(6)->create();
 
-        $developer = Role::create(['name' => 'developer']);
+        $developer = Role::create(['name' => 'Developer']);
         $admin = Role::create(['name' => 'Admin']);
         $pegawai = Role::create(['name' => 'Pegawai']);
         $kurir = Role::create(['name' => 'Kurir']);
