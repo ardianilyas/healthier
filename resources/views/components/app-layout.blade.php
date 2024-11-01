@@ -22,11 +22,17 @@
     <body class="antialiased relative bg-gray-50">
         <x-notify::notify />
         <div class="flex flex-col justify-between min-h-screen w-full">
-            <x-navbar />
+            
+            <div>
+                
+                <x-navbar />
 
-            <div class="px-8 md:px-10 lg:px-10 py-12">
                 <x-notify::notify />
-                {{ $slot }}
+
+                <div  class="px-8 md:px-10 lg:px-10 py-12">
+                    {{ $slot }}
+                </div>
+
             </div>
     
             <x-footer />
