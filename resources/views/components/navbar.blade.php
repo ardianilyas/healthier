@@ -1,4 +1,4 @@
-<div class="w-full py-2 bg-white shadow-sm flex justify-center items-center">
+<div class="w-full py-4 sticky top-0 right-0 backdrop-filter backdrop-blur-lg bg-opacity-60 bg-white shadow-sm flex justify-center items-center">
     <div x-data="{ open: false }" class="w-full px-8 md:px-10 lg:px-12 flex flex-col md:flex-row justify-between items-start md:items-center">
         <div class="w-full md:w-auto flex justify-between items-center md:block">
             <h1 class="text-2xl font-semibold">Healthier</h1>
