@@ -22,7 +22,10 @@ class KaryawanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|min:2',
+            'email' => 'required|string|lowercase|email',
+            'password' => 'required|string|min:8',
+            'role' => 'required|string|in:Admin,Pegawai,Kurir,Dokter'
         ];
     }
 }

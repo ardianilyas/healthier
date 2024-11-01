@@ -21,6 +21,7 @@
     </style>
     <body class="antialiased bg-gray-50 min-h-screen w-full">
 
+        <x-notify::notify />
         <!-- ========== MAIN CONTENT ========== -->
         <!-- Breadcrumb -->
         <div class="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 lg:px-8 lg:hidden dark:bg-neutral-800 dark:border-neutral-700">
