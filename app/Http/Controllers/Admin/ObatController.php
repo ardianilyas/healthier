@@ -29,7 +29,7 @@ class ObatController extends Controller
         }
 
         Obat::create($data);
-
+        notify()->success("Obat berhasil ditambahkan", 'Success');
         return redirect()->route('dashboard.obat.index');
     }
 
@@ -38,7 +38,10 @@ class ObatController extends Controller
     }
 
     public function update(ObatRequest $request, Obat $obat) {
+
         $obat->update($request->validated());
+
+        notify()->success("Data obat berhasil diupdate", "Success");
 
         return redirect()->route('dashboard.obat.index');
     }
@@ -48,6 +51,7 @@ class ObatController extends Controller
             unlink('storage/obat/'. $obat->image); // Delete the file from the storage directory if it exists.
         }
         $obat->delete();
+        notify()->success("Data obat berhasil dihapus", "Success");
         return redirect()->route('dashboard.obat.index');
     }
 }
