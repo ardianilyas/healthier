@@ -25,9 +25,9 @@
             
             <div>
                 
+                <x-notify::notify class="z-[1000]" />
+                
                 <x-navbar />
-
-                <x-notify::notify />
 
                 <div  class="px-8 md:px-10 lg:px-10 py-12">
                     {{ $slot }}
