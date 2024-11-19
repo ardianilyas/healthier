@@ -63,7 +63,7 @@
                                     Dashboard
                                 </a>
                             </li>
-                            @role('Admin')
+                            @hasanyrole('Admin|Developer')
                             <li>
                                 <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white {{ request()->routeIs('dashboard.obat*') ? 'bg-white/10' : '' }}" href="{{ route('dashboard.obat.index') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -80,7 +80,7 @@
                                     Karyawan
                                 </a>
                             </li>
-                            @endrole
+                            @endhasanyrole
                             <li>
                                 <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:bg-white/10 dark:bg-neutral-700 dark:text-white" href="{{ route('homepage') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
