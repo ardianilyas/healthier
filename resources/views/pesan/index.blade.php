@@ -14,6 +14,7 @@
                     </div>
                     <p class="mt-3 text-lg text-neutral-800 font-medium capitalize">{{ $obat->nama }}</p>  
                     <p class="text-sm text-neutral-600 font-light line-clamp-2">{{ $obat->keterangan }}</p>
+                    <x-primary-link class="mt-3">Detail obat</x-primary-link>
                 </a>
             </x-card>            
         @endforeach
