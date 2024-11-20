@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Membership;
 use App\Models\Obat;
+use App\Models\Plan;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'ardian@developer.com',
             'password' => bcrypt('developer'),
         ]);
+        User::factory(5)->create();
 
         Obat::factory(6)->create();
 
@@ -32,5 +35,8 @@ class DatabaseSeeder extends Seeder
         $dokter = Role::create(['name' => 'Dokter']);
 
         $user->assignRole($developer);
+
+        Plan::factory(3)->create();
+        Membership::factory(10)->create();
     }
 }
