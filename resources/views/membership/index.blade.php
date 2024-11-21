@@ -1,14 +1,11 @@
 <x-app-layout>
     <h1 class="text-2xl font-bold">Membership</h1>
 
+    @auth
     <x-card class="max-w-md">
-        Current membership status :
-        @if (!is_null($membership))
-            <p>{{ $membership->plan->name }}</p>
-        @else
-            <p>don't have membership</p>
-        @endif
+        Your last membership : <b>{{ Auth::user()->membership->plan->name }}</b> end at {{ \Carbon\Carbon::parse(Auth::user()->membership->end_date)->format("l, d F Y") }}
     </x-card>
+    @endauth
 
     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($plans as $plan)
