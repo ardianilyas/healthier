@@ -4,7 +4,7 @@
     <div class="my-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
         @foreach ($listObat as $obat)
             <x-card>
-                <a href="" class="hover:bg-gray-50">
+                <a href="{{ route('pesan.detail', $obat->id) }}" class="hover:bg-gray-50">
                     <div class="flex justify-center">
                         @if ($obat->image)
                         <img src="{{ asset('/storage/obat/'.$obat->image) }}" alt="{{ $obat->nama }}" width="120">
@@ -14,7 +14,7 @@
                     </div>
                     <p class="mt-3 text-lg text-neutral-800 font-medium capitalize">{{ $obat->nama }}</p>  
                     <p class="text-sm text-neutral-600 font-light line-clamp-2">{{ $obat->keterangan }}</p>
-                    <x-primary-link class="mt-3">Detail obat</x-primary-link>
+                    <x-primary-link href="{{ route('pesan.detail', $obat->id) }}" class="mt-3">Detail obat</x-primary-link>
                 </a>
             </x-card>            
         @endforeach
