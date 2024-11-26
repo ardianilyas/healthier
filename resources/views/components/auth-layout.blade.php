@@ -9,7 +9,7 @@
         @notifyCss
     </head>
     <body class="antialiased relative bg-gray-50 min-h-screen w-full">
-        <div class="min-h-screen w-full flex">
+        <div class="min-h-screen w-full flex justify-center items-center">
             <div class="lg:basis-1/2 basis-full px-6 lg:px-12 flex w-full min-h-screen justify-center items-center">
                 <div class="bg-white p-6 rounded-md shadow-md w-full">
                     @if (isset($title))
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="lg:basis-1/2 basis-0 hidden lg:block">
-                {{-- {{ $image }} --}}
+                <img src="{{ asset('auth/UI/auth.png') }}" alt="">
             </div>
         </div>
         <x-notify::notify />
