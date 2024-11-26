@@ -36,7 +36,19 @@ class DatabaseSeeder extends Seeder
 
         $user->assignRole($developer);
 
-        Plan::factory(3)->create();
+        // Plan::factory(3)->create();
+        Plan::create([
+            'name' => "Premium",
+            'description' => "Premium membership plan",
+            'price' => 100000
+        ]);
+
+        Plan::create([
+            'name' => "Diamond",
+            'description' => "Diamond membership plan",
+            'price' => 150000
+        ]);
+        
         Membership::factory(10)->create();
     }
 }
