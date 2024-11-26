@@ -24,6 +24,7 @@
                 </ul>
             </div>
         </div>
-        <p class="font-medium mt-6 lg:mt-0 lg:text-center">Copyright &copy; 2024</p>
+        <div class="w-full h-[1px] mt-6 bg-neutral-500"></div>
+        <p class="font-medium py-8 mt-6 lg:mt-0 lg:text-center">Copyright &copy; Healthier 2024</p>
     </div>
 </footer>
