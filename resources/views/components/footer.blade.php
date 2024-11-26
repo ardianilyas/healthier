@@ -1,6 +1,6 @@
 <footer class="bg-[#0A0E31] text-white text-sm w-full">
     <div class="w-full px-8 md:px-10 lg:px-12 pt-10 pb-4">
-        <div class="w-full grid grid-rows-2 md:grid-rows-none lg:grid-cols-8">
+        <div class="w-full grid grid-rows-2 md:grid-rows-none lg:grid-cols-8 gap-8">
             <div class="lg:col-span-6">
                 <h1 class="text-2xl font-semibold">Healthier</h1>
                 <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ipsa incidunt doloribus quo sit, neque laboriosam a commodi maxime facere saepe at obcaecati ducimus aut sapiente nulla fugiat iste cupiditate!</p>
