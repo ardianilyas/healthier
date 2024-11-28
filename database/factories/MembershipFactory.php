@@ -21,8 +21,14 @@ class MembershipFactory extends Factory
         return [
             'user_id' => User::inRandomOrder()->first()->id,
             'plan_id' => Plan::inRandomOrder()->first()->id,
-            'start_date' => now(),
-            'end_date' => now()->addDays(30),
+            'start_date' => $startDate = collect([
+                now()->subMonth(1),
+                now()->subWeek(1),
+                now()->subWeek(2),
+                now()->subWeek(3),
+                now()
+            ])->random(1)->first(),
+            'end_date' => $startDate->addDays(30),
             'status' => fake()->randomElement(['active', 'expired', 'pending'])
         ];
     }
