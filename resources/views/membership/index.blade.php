@@ -2,7 +2,7 @@
     <h1 class="text-2xl font-bold">Membership</h1>
 
     @auth
-    <x-card class="max-w-md">
+    <x-card class="max-w-lg mt-4">
         Your last membership : <b>{{ Auth::user()->membership->plan->name }}</b> end at {{ \Carbon\Carbon::parse(Auth::user()->membership->end_date)->format("l, d F Y") }}
     </x-card>
     @endauth
