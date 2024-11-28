@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Ardian Ilyas',
             'email' => 'ardian@developer.com',
             'password' => bcrypt('developer'),
+            'is_membership' => true,
         ]);
+        
         User::factory(5)->create();
 
         Obat::factory(6)->create();
