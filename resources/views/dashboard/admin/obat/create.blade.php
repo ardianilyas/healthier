@@ -1,7 +1,6 @@
-<x-dashboard>
-    <x-slot:title>Tambah Obat</x-slot:title>
-    <x-slot:desc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, veritatis.</x-slot:desc>
+@extends('layouts.dashboard')
 
+@section('content')
     <x-card>
         <form action="{{ route('dashboard.obat.store') }}" enctype="multipart/form-data" class="[&>div]:mb-3" method="POST">
             @csrf
@@ -45,4 +44,4 @@
             </div>
         </form>
     </x-card>
-</x-dashboard>
+@endsection

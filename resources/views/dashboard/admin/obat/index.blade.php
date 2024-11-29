@@ -1,7 +1,6 @@
-<x-dashboard>
-    <x-slot:title>Obat</x-slot:title>
-    <x-slot:desc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, aspernatur.</x-slot:desc>
+@extends('layouts.dashboard')
 
+@section('content')
     <x-primary-link href="{{ route('dashboard.obat.create') }}">Tambah Obat</x-primary-link>
     <div class="grid grid-cols-3 gap-4">
         @foreach ($listObat as $obat)
@@ -26,4 +25,4 @@
         </x-card>
         @endforeach
     </div>
-</x-dashboard>
+@endsection

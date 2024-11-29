@@ -1,3 +1,5 @@
-<x-dashboard>
-    <x-slot:title>Dashboard page</x-slot:title>
-</x-dashboard>
+@extends('layouts.dashboard')
+
+@section('content')
+    
+@endsection

@@ -1,7 +1,6 @@
-<x-dashboard>
-    <x-slot:title>Edit Obat {{ $obat->nama }}</x-slot:title>
-    <x-slot:desc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, veritatis.</x-slot:desc>
+@extends('layouts.dashboard')
 
+@section('content')
     <x-card>
         <form action="{{ route('dashboard.obat.update', $obat->id) }}" enctype="multipart/form-data" class="[&>div]:mb-3" method="POST">
             @method("PATCH")
@@ -46,4 +45,4 @@
             </div>
         </form>
     </x-card>
-</x-dashboard>
+@endsection

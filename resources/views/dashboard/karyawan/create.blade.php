@@ -1,7 +1,6 @@
-<x-dashboard>
-    <x-slot:title>Create User</x-slot:title>
-    <x-slot:desc>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, ipsum.</x-slot:desc>
+@extends('layouts.dashboard')
 
+@section('content')    
     <x-card>
         <form action="{{ route('dashboard.karyawan.store') }}" method="POST" class="[&>div]:mb-3">
             @csrf
@@ -43,4 +42,4 @@
             </div>
         </form>
     </x-card>
-</x-dashboard>
+@endsection

@@ -99,16 +99,16 @@
         
         <!-- Content -->
         <div class="w-full pt-8 px-4 sm:px-6 md:px-8 lg:ps-72">
-            @if(isset($title))
+            {{-- @if(isset($title))
                 <h2 class="text-2xl font-medium text-neutral-800">{{ $title }}</h2>
             @endif
             
             @if(isset($desc))
-                <p class="text-sm text-neutral-600 leading-loose font-light">{{ $desc }}</p>
-            @endif
+                <p class="text-sm text-neutral-600 leading-loose font-light">{{ $desc }}</p> --}}
+            {{-- @endif --}}
 
             <div class="py-8">
-                {{ $slot }}
+                @yield('content')
             </div>
             <!-- your content goes here ... -->
         </div>
