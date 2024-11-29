@@ -1,5 +1,10 @@
 @extends('layouts.dashboard')
 
+@section('heading')
+<x-h1>List karyawan</x-h1>
+<x-p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt molestiae modi.</x-p>
+@endsection
+
 @section('content')    
   <x-primary-link href="{{ route('dashboard.karyawan.create') }}">Create user</x-primary-link>
 

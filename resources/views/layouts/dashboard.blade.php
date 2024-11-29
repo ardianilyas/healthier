@@ -100,7 +100,11 @@
         <!-- Content -->
         <div class="w-full px-4 sm:px-6 md:px-8 lg:ps-72">
 
+            
             <div class="py-8">
+                <div class="mb-4">
+                    @yield('heading')
+                </div>
                 @yield('content')
             </div>
             <!-- your content goes here ... -->

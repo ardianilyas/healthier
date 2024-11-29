@@ -1,6 +1,12 @@
 @extends('layouts.dashboard')
 
+@section('heading')
+<x-h1>List Obat</x-h1>
+<x-p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nihil sint omnis.</x-p>
+@endsection
+
 @section('content')
+
     <x-primary-link href="{{ route('dashboard.obat.create') }}">Tambah Obat</x-primary-link>
     <div class="grid grid-cols-3 gap-4">
         @foreach ($listObat as $obat)

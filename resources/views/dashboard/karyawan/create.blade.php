@@ -1,5 +1,10 @@
 @extends('layouts.dashboard')
 
+@section('heading')
+<x-h1>Tambah data karyawan / dokter</x-h1>
+<x-p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt molestiae modi.</x-p>
+@endsection
+
 @section('content')    
     <x-card>
         <form action="{{ route('dashboard.karyawan.store') }}" method="POST" class="[&>div]:mb-3">
