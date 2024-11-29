@@ -1,6 +1,8 @@
-<x-app-layout>
-    {{-- Hero section --}}
-    <section class="w-full pb-32 flex flex-col-reverse lg:flex-row items-center justify-between">
+@extends('layouts.app')
+
+@section('content')
+     {{-- Hero section --}}
+     <section class="w-full pb-32 flex flex-col-reverse lg:flex-row items-center justify-between">
         <div class="basis-full lg:basis-1/2">
             <h1 class="text-4xl font-bold">Healthier siap melayani keluhan dan pelayanan obat pada masyarakat selama 24/7.</h1>
             <p class="text-neutral-600 mt-2">Healthier merupakan apotek online yang akan selalu ada untuk anda yang membutuhkan obat tanpa harus datang langsung ke apotek secara langsung.</p>
@@ -67,4 +69,4 @@
             </div>
         </div>
     </section>
-</x-app-layout>
+@endsection

@@ -30,7 +30,7 @@
                 <x-navbar />
 
                 <div  class="px-8 md:px-10 lg:px-10 py-12">
-                    {{ $slot }}
+                    @yield('content')
                 </div>
 
             </div>

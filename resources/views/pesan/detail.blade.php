@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('content')
     <x-card class="">
         <h1 class="text-2xl font-bold">Detail obat : {{ $obat->nama }}</h1>
         <p>{{ $obat->keterangan }}</p>
@@ -17,4 +19,4 @@
             <x-primary-link type="submit" class="my-3">Pesan obat</x-primary-link>
         </form>
     </x-card>
-</x-app-layout>
+@endsection

@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('content')
     <h1 class="text-2xl font-bold">Daftar Obat</h1>
 
     <div class="my-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -19,11 +21,11 @@
                     <div class="mt-6">
                         <form action="{{ route('keranjang.add', $obat->id) }}" method="POST">
                             @csrf
-                            <x-button class="bg-blue-700 hover:bg-blue-800">Add to cart</x-button>
+                            <button type="submit" class="px-4 py-2 text-white rounded-md shadow-md bg-blue-700 hover:bg-blue-800 transition-all ease-in-out">Add to cart</button>
                         </form>
                     </div>
                 </div>
             </x-card>            
         @endforeach
     </div>
-</x-app-layout>
+@endsection
