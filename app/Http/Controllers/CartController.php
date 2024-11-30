@@ -48,11 +48,7 @@ class CartController extends Controller
     }
 
     public function removeItem(CartItem $cartItem) {
-
-        $cartItem->delete();
-
-        return response()->json([
-            'message' => 'Item removed from cart',
-        ]);
+        $cartItem->delete();        
+        return back();
     }
 }
