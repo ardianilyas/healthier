@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
+use App\Models\CartItem;
 use App\Models\Obat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,45 +11,48 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     public function index() {
-        $id = Auth::user()->id;
+        $cart = Cart::where('user_id', Auth::id())->with('items.obat')->first();
 
-        $cart = session()->get('cart_' . $id, []);
+        // $cartItems = CartItem::where('cart_id', $cart->id)->sum('quantity');
 
-        $totalPrice = 0;
+        $totalHarga = 0;
 
-        foreach ($cart as $item) {
-            $totalPrice += $item['price'] * $item['qty'];
+        foreach ($cart->items as $item) {
+            $totalHarga += $item->obat->harga * $item->quantity;
         }
 
-        return view('keranjang.index', compact('cart', 'totalPrice'));
+        return view('keranjang.index', compact('cart', 'totalHarga'));
     }
 
     public function add(Obat $obat) {
-        $id = Auth::user()->id;
+        $id = Auth::id();
 
-        $cart = session()->get('cart_' . $id);
+        $cart = Cart::firstOrCreate([
+            'user_id' => $id,
+            'status' => 'active',
+        ]);
 
-        if (!$cart) {
-            $cart = [
-                $obat->id => [
-                    'nama' => $obat->nama,
-                    'qty' => 1,
-                    'price' => $obat->harga,
-                ]
-            ];
+        $cartItem = CartItem::where('cart_id', $cart->id)->where('obat_id', $obat->id)->first();
+
+        if($cartItem) {
+            $cartItem->quantity++;
+            $cartItem->save();
         } else {
-            if (isset($cart[$obat->id])) {
-                $cart[$obat->id]['qty']++;
-            } else {
-                $cart[$obat->id] = [
-                    'nama' => $obat->nama,
-                    'qty' => 1,
-                    'price' => $obat->harga,
-                ];
-            }
+            $newCartItem = CartItem::create([
+                'cart_id' => $cart->id,
+                'obat_id' => $obat->id,
+            ]);
         }
 
-        session()->put('cart_' . $id, $cart);
         return redirect()->route('keranjang.index');
+    }
+
+    public function removeItem(CartItem $cartItem) {
+
+        $cartItem->delete();
+
+        return response()->json([
+            'message' => 'Item removed from cart',
+        ]);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
+use App\Models\CartItem;
 use App\Models\Membership;
 use App\Models\Obat;
 use App\Models\Plan;
@@ -52,5 +54,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         Membership::factory(10)->create();
+        Cart::factory(1)->create();
+        CartItem::factory(1)->create();
     }
 }

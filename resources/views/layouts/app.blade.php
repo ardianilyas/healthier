@@ -38,6 +38,6 @@
             <x-footer />
         </div>
 
-
+        @stack('script')
     </body>
 </html>
