@@ -11,6 +11,9 @@ Healthier is a website that allows you to order medicine at pharmacy via online.
 
 - [x] Login
 - [x] Register
+- [x] Membership
+- [x] CRUD Obat for Admin
+- [x] CRUD Data Karyawan for Admin
+- [x] Add to cart system
 - [ ] Order medicine
 - [ ] Consultation
-- [ ] Membership
