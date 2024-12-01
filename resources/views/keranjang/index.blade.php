@@ -6,7 +6,7 @@
     <x-card class="my-8">
         @if ($cart->items->count() > 0)
             @foreach ($cart->items as $item)
-                <div class="mb-5 max-w-md bg-gray-100 p-4 flex justify-between items-center rounded-md shadow-sm item" id="item-{{ $item->id }}">
+                <div class="mb-5 max-w-md bg-gray-100/80 p-4 flex justify-between items-center rounded-md shadow-sm item" id="item-{{ $item->id }}">
                     <div>
                         <p>Nama obat : {{ $item->obat->nama }}</p>
                         <p>Jumlah : {{ $item->quantity }}</p>
