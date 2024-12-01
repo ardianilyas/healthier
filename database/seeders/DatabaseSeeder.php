@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'price' => 150000
         ]);
         
-        Membership::factory(10)->create();
+        Membership::factory(3)->create();
         Cart::factory(1)->create();
         CartItem::factory(1)->create();
     }
