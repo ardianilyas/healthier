@@ -6,6 +6,7 @@ Healthier is a website that allows you to order medicine at pharmacy via online.
 - Laravel
 - Tailwindcss 
 - Preline
+- Midtrans (Payment Gateway)
 
 ## Features List
 
