@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\Obat;
+use App\Services\CartService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    protected $cartService;
+    public function __construct(CartService $cartService) {
+        $this->cartService = $cartService;
+    }
+
     public function index() {
         $cart = Cart::where('user_id', Auth::id())->with('items.obat')->first();
 
@@ -25,24 +31,7 @@ class CartController extends Controller
     }
 
     public function add(Obat $obat) {
-        $id = Auth::id();
-
-        $cart = Cart::firstOrCreate([
-            'user_id' => $id,
-            'status' => 'active',
-        ]);
-
-        $cartItem = CartItem::where('cart_id', $cart->id)->where('obat_id', $obat->id)->first();
-
-        if($cartItem) {
-            $cartItem->quantity++;
-            $cartItem->save();
-        } else {
-            $newCartItem = CartItem::create([
-                'cart_id' => $cart->id,
-                'obat_id' => $obat->id,
-            ]);
-        }
+        $this->cartService->updateCart($obat);
 
         return redirect()->route('keranjang.index');
     }
