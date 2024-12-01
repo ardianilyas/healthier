@@ -1,8 +1,8 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use App\Http\Middleware\IsMembershipMiddleware;
 use App\Http\Middleware\IsNotMembershipMiddleware;
-use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
