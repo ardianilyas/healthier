@@ -29,6 +29,6 @@ class DeletePendingMembership extends Command
     {
         $deletedMemberships = Membership::where('status', 'pending')->delete();
 
-        Log::info("Deleted {$deletedMemberships} memberships");
+        $this->info("Deleted {$deletedMemberships} memberships");
     }
 }

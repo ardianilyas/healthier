@@ -29,6 +29,6 @@ class DeletePendingTransactions extends Command
     {
         $deletedCount = Transaction::where('status', 'pending')->delete();
 
-        Log::info("Deleted {$deletedCount} transactions from the database");
+        $this->info("Deleted {$deletedCount} transactions from the database");
     }
 }
