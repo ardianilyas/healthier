@@ -19,12 +19,12 @@ class CartController extends Controller
     public function index() {
         $cart = Cart::where('user_id', Auth::id())->with('items.obat')->first();
 
-        // $cartItems = CartItem::where('cart_id', $cart->id)->sum('quantity');
-
         $totalHarga = 0;
 
-        foreach ($cart->items as $item) {
-            $totalHarga += $item->obat->harga * $item->quantity;
+        if($cart) {
+            foreach ($cart->items as $item) {
+                $totalHarga += $item->obat->harga * $item->quantity;
+            }
         }
 
         return view('keranjang.index', compact('cart', 'totalHarga'));
