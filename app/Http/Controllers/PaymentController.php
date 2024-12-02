@@ -7,37 +7,33 @@ use App\Models\Plan;
 use App\Models\User;
 use Midtrans\Config;
 use App\Models\Membership;
-use Midtrans\Notification;
 use App\Models\Transaction;
+use App\Services\PaymentService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
+    protected $paymentService;
 
-    public function __construct() {
+    public function __construct(PaymentService $paymentService) {
+
         Config::$serverKey = config('midtrans.server_key');
         Config::$isProduction = config('midtrans.is_production');
         Config::$isSanitized = config('midtrans.is_sanitized');
         Config::$is3ds = config('midtrans.is_3ds');
+
+        $this->paymentService = $paymentService;
     }
 
     public function purchaseMembership(Plan $plan)
     {
         $user = Auth::user();
 
-        $membership = Membership::create([
-            'user_id' => $user->id,
-            'plan_id' => $plan->id,
-        ]);
+        $membership = $this->paymentService->createMembership($plan);
 
-        $transaction = Transaction::create([
-            'order_id' => "Membership-" . uniqid(), // Generate unique order ID
-            'user_id' => $user->id,
-            'type' => 'membership',
-            'reference_id' => $membership->id,
-        ]);
+        $transaction = $this->paymentService->createTransaction('membership', $membership);
 
         $snapToken = $this->createSnapTransaction($transaction, $plan->price, $user);
 
