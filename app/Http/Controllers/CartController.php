@@ -6,8 +6,6 @@ use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\Obat;
 use App\Services\CartService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -17,15 +15,9 @@ class CartController extends Controller
     }
 
     public function index() {
-        $cart = Cart::where('user_id', Auth::id())->with('items.obat')->first();
+        $cart = Cart::cart()->with('items.obat')->first();
 
-        $totalHarga = 0;
-
-        if($cart) {
-            foreach ($cart->items as $item) {
-                $totalHarga += $item->obat->harga * $item->quantity;
-            }
-        }
+        $totalHarga = $this->cartService->getTotalHarga($cart);  
 
         return view('keranjang.index', compact('cart', 'totalHarga'));
     }

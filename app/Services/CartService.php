@@ -36,4 +36,16 @@ class CartService
             ]);
         }
     }
+
+    public function getTotalHarga($cart) {
+        $totalHarga = 0;
+        
+        if($cart) {
+            foreach ($cart->items as $item) {
+                $totalHarga += $item->obat->harga * $item->quantity;
+            }
+        }
+
+        return $totalHarga;
+    }
 }
