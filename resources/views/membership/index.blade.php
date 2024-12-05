@@ -4,7 +4,9 @@
     <h1 class="text-2xl font-bold">Membership</h1>
     <p class="text-neutral-800">Untuk dapat mengakses fitur konsultasi penyakit, silahkan untuk membeli membership yang tersedia dibawah ini.</p>
 
+    
     @auth
+        {{-- <p>{{ Auth::user()->membership->transactions }}</p> --}}
         @if (Auth::user()->memberships->count() > 0)    
             <x-card class="max-w-lg mt-4">
                 Your last membership : <b>{{ Auth::user()->membership->plan->name }}</b> end at {{ \Carbon\Carbon::parse(Auth::user()->membership->end_date)->format("l, d F Y") }}

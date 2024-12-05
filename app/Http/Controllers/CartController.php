@@ -28,6 +28,10 @@ class CartController extends Controller
         return redirect()->route('keranjang.index');
     }
 
+    public function checkout() {
+        
+    }
+
     public function removeItem(CartItem $cartItem) {
         $cartItem->delete();        
         return back();

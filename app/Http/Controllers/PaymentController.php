@@ -33,7 +33,7 @@ class PaymentController extends Controller
 
         $membership = $this->paymentService->createMembership($plan);
 
-        $transaction = $this->paymentService->createTransaction('membership', $membership);
+        $transaction = $this->paymentService->createTransaction('membership', $membership, $plan->price);
 
         $snapToken = $this->createSnapTransaction($transaction, $plan->price, $user);
 
@@ -88,7 +88,7 @@ class PaymentController extends Controller
             $transaction->payment_type = $notification->payment_type;
 
             if($transaction->type == 'membership') {
-                $membership = Membership::where('id', $transaction->reference_id)->first();
+                $membership = Membership::where('id', $transaction->transactionable_id)->first();
                 $membership->start_date = now();
                 $membership->end_date = now()->addMonth();
                 $membership->status = 'active';

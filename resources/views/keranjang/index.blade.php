@@ -23,6 +23,11 @@
             <div class="mt-6">
                 <b>Total harga : Rp. <span id="total-harga">{{ number_format($totalHarga, 2) }}</span></b>
             </div>
+
+            <form action="{{ route('keranjang.checkout') }}" method="POST" class="mt-4">
+                @csrf
+                <x-secondary-button type="submit">Checkout</x-secondary-button>
+            </form>
         @else
             <p>Your cart is empty</p>
         @endif

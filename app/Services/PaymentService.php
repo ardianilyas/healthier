@@ -27,7 +27,7 @@ class PaymentService
         return $membership;
     }
 
-    public function createTransaction($type, $reference) {
+    public function createTransaction($type, $membership, $amount) {
         $user = Auth::user();
 
         $orderId = '';
@@ -38,11 +38,10 @@ class PaymentService
             $orderId = "Order-" . uniqid();
         }
         
-        $transaction = Transaction::create([
-            'order_id' => $orderId,
+        $transaction = $membership->transactions()->create([
             'user_id' => $user->id,
-            'type' => $type,
-            'reference_id' => $reference->id,
+            'order_id' => $orderId,
+            'amount' => $amount,
         ]);
 
         return $transaction;
