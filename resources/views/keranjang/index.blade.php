@@ -3,6 +3,10 @@
 @section('content')
     <h1 class="text-2xl font-bold">Keranjang</h1>
 
+    @if (session()->has('error'))
+        <p class="text-red-500">{{ session('error') }}</p>
+    @endif
+
     <x-card class="my-8">
         @if ($cart->items->count() > 0)
             @foreach ($cart->items as $item)
@@ -24,7 +28,7 @@
                 <b>Total harga : Rp. <span id="total-harga">{{ number_format($totalHarga, 2) }}</span></b>
             </div>
 
-            <form action="{{ route('keranjang.checkout') }}" method="POST" class="mt-4">
+            <form action="{{ route('keranjang.checkout', $cart->id) }}" method="POST" class="mt-4">
                 @csrf
                 <x-secondary-button type="submit">Checkout</x-secondary-button>
             </form>
