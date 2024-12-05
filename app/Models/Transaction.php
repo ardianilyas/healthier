@@ -14,7 +14,7 @@ class Transaction extends Model
     protected $table = 'transactions';
     protected $guarded = ['id'];
 
-    public function reference(): MorphTo {
+    public function transactionable(): MorphTo {
         return $this->morphTo();
     }
 }

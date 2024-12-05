@@ -26,6 +26,6 @@ class Cart extends Model
     }
 
     public function scopeCart(Builder $query) {
-        $query->where('user_id', Auth::id());
+        $query->where('user_id', Auth::id())->where('status', 'active');
     }
 }
