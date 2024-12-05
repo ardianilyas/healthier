@@ -2,6 +2,7 @@
 
 @section('content')
     <h1 class="text-2xl font-bold">Membership</h1>
+    <p class="text-neutral-800">Untuk dapat mengakses fitur konsultasi penyakit, silahkan untuk membeli membership yang tersedia dibawah ini.</p>
 
     @auth
         @if (Auth::user()->memberships->count() > 0)    
