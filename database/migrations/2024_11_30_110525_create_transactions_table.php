@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('order_id')->unique();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('type');
-            $table->unsignedBigInteger('reference_id');
+            $table->morphs('transactionable');
+            $table->integer('amount');
             $table->string('status')->default('pending');
             $table->string('payment_type')->nullable();
             $table->timestamps();
