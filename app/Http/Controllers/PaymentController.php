@@ -70,6 +70,8 @@ class PaymentController extends Controller
         $payload = $request->getContent();
         $notification = json_decode($payload);
 
+        $this->paymentService->compareSignatureKey($notification);
+
         // Validate the notification
         $orderId = $notification->order_id;
         $transactionStatus = $notification->transaction_status;
@@ -87,16 +89,9 @@ class PaymentController extends Controller
             $transaction->status = "success";
             $transaction->payment_type = $notification->payment_type;
 
-            if($transaction->type == 'membership') {
-                $membership = Membership::where('id', $transaction->transactionable_id)->first();
-                $membership->start_date = now();
-                $membership->end_date = now()->addMonth();
-                $membership->status = 'active';
-                $membership->save();
-
-                $user = User::where('id', $membership->user_id)->first();
-                $user->is_membership = true;
-                $user->save();
+            if($transaction->transactionable_type == 'App\Models\Membership') {
+                $membership = $this->paymentService->createMembership($transaction);
+                $this->paymentService->updateUserStatus($membership);
             }
         } elseif($transactionStatus == 'pending') {
             $transaction->status = 'pending';

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\User;
 use App\Models\Membership;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
@@ -45,5 +46,28 @@ class PaymentService
         ]);
 
         return $transaction;
+    }
+
+    public function compareSignatureKey($notification) {
+        $serverKey = config('midtrans.server_key');
+        $signatureKey = hash('sha512', $notification->order_id . $notification->status_code . $notification->gross_amount . $serverKey);
+
+        if($signatureKey !== $notification->signature_key) {
+            return response()->json(['message' => 'Invalid signature key'], 403);
+        }
+    }
+
+    public function updateMembership($transaction) {
+        $membership = Membership::where('id', $transaction->transactionable_id)->first();
+        $membership->start_date = now();
+        $membership->end_date = now()->addMonth();
+        $membership->status = 'active';
+        $membership->save();
+    }
+
+    public function updateUserStatus($membership) {
+        $user = User::where('id', $membership->user_id)->first();
+        $user->is_membership = true;
+        $user->save();
     }
 }
