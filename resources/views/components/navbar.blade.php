@@ -14,9 +14,9 @@
         <ul :class="open ? '' : 'hidden md:flex' " class="flex flex-col md:flex-row justify-start md:justify-center md:items-center my-3 md:my-0 gap-3 md:gap-5">
             <li><x-navbar-link :active="request()->routeIs('homepage')" href="/">Home</x-navbar-link></li>
             <li><x-navbar-link :active="request()->routeIs('artikel*')" href="/artikel">Artikel</x-navbar-link></li>
-            <li><x-navbar-link :active="request()->routeIs('pesan*')" href="/pesan">Pesan Obat</x-navbar-link></li>
+            {{-- <li><x-navbar-link :active="request()->routeIs('pesan*')" href="/pesan">Pesan Obat</x-navbar-link></li>
             <li><x-navbar-link :active="request()->routeIs('keranjang*')" href="/keranjang">Keranjang</x-navbar-link></li>
-            <li><x-navbar-link :active="request()->routeIs('checkout*')" href="/checkout">Checkout</x-navbar-link></li>
+            <li><x-navbar-link :active="request()->routeIs('checkout*')" href="/checkout">Checkout</x-navbar-link></li> --}}
             <li><x-navbar-link :active="request()->routeIs('konsultasi*')" href="/konsultasi">Konsultasi</x-navbar-link></li>
             <li><x-navbar-link :active="request()->routeIs('membership*')" href="/membership">Membership</x-navbar-link></li>
         </ul>
