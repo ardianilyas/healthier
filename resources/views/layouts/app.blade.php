@@ -26,7 +26,7 @@
             
             <div>
                 
-                <x-notify::notify class="z-[1000]" />
+                <x-notify::notify class="z-20" />
                 
                 <x-navbar />
 

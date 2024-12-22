@@ -39,6 +39,13 @@ class DatabaseSeeder extends Seeder
         $dokter = Role::create(['name' => 'Dokter']);
 
         $user->assignRole($developer);
+        $userDokter = User::factory()->create([
+            'name' => 'Leonore Lynn',
+            'email' => 'leonore@healthier.com',
+            'password' => bcrypt('password'),
+            'is_membership' => true,
+        ]);
+        $userDokter->assignRole($dokter);
 
         // Plan::factory(3)->create();
         Plan::create([
@@ -51,6 +58,14 @@ class DatabaseSeeder extends Seeder
             'name' => "Diamond",
             'description' => "Diamond membership plan",
             'price' => 150000
+        ]);
+
+        Membership::factory()->create([
+            'user_id' => 1,
+            'plan_id' => 1,
+            'status' => 'active',
+            'start_date' => now(),
+            'end_date' => now(),
         ]);
         
         Membership::factory(3)->create();

@@ -1,4 +1,4 @@
-<div class="w-full py-4 sticky top-0 right-0 backdrop-filter backdrop-blur-lg bg-opacity-60 bg-white shadow-sm flex justify-center items-center">
+<div class="w-full -z-10 py-4 backdrop-filter backdrop-blur-lg bg-opacity-60 bg-white shadow-sm flex justify-center items-center">
     <div x-data="{ open: false }" class="w-full px-8 md:px-10 lg:px-12 flex flex-col md:flex-row justify-between items-start md:items-center">
         <div class="w-full md:w-auto flex justify-between items-center md:block">
             <h1 class="text-2xl font-semibold">Healthier</h1>
@@ -13,11 +13,14 @@
         </div>
         <ul :class="open ? '' : 'hidden md:flex' " class="flex flex-col md:flex-row justify-start md:justify-center md:items-center my-3 md:my-0 gap-3 md:gap-5">
             <li><x-navbar-link :active="request()->routeIs('homepage')" href="/">Home</x-navbar-link></li>
-            <li><x-navbar-link :active="request()->routeIs('artikel*')" href="/artikel">Artikel</x-navbar-link></li>
+            {{-- <li><x-navbar-link :active="request()->routeIs('artikel*')" href="/artikel">Artikel</x-navbar-link></li> --}}
             {{-- <li><x-navbar-link :active="request()->routeIs('pesan*')" href="/pesan">Pesan Obat</x-navbar-link></li>
             <li><x-navbar-link :active="request()->routeIs('keranjang*')" href="/keranjang">Keranjang</x-navbar-link></li>
             <li><x-navbar-link :active="request()->routeIs('checkout*')" href="/checkout">Checkout</x-navbar-link></li> --}}
             <li><x-navbar-link :active="request()->routeIs('konsultasi*')" href="/konsultasi">Konsultasi</x-navbar-link></li>
+            @role('Dokter')
+            <li><x-navbar-link :active="request()->routeIs('balasan*')" href="/balasan">Daftar Konsultasi</x-navbar-link></li>
+            @endrole
             <li><x-navbar-link :active="request()->routeIs('membership*')" href="/membership">Membership</x-navbar-link></li>
         </ul>
         <div :class="open ? '' : 'hidden md:block' ">

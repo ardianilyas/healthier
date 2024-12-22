@@ -23,7 +23,7 @@
                 </div>
                 <div class="my-4">
                     <h2 class="text-2xl font-semibold">Konsultasi Penyakit</h2>
-                    <p class="text-[15px] text-neutral-600 mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, odit animi perspiciatis commodi temporibus facilis fugiat non dolores.</p>
+                    <p class="text-[15px] text-neutral-600 mt-2">Konsultasi penyakit online memungkinkan Anda untuk dapat berinteraksi dengan dokter agar dapat mengetahui gejala / penyakit yang Anda alami saat ini.</p>
                 </div>
             </x-card>
             <x-card>
@@ -31,8 +31,8 @@
                     <img src="{{ asset('icons/UI/005-syringe.svg') }}" class="" alt="">
                 </div>
                 <div class="my-4">
-                    <h2 class="text-2xl font-semibold">Pesan Obat Online</h2>
-                    <p class="text-[15px] text-neutral-600 mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, odit animi perspiciatis commodi temporibus facilis fugiat non dolores.</p>
+                    <h2 class="text-2xl font-semibold">Pelayanan Konsultasi Cepat</h2>
+                    <p class="text-[15px] text-neutral-600 mt-2">Salah satu layanan unggulan kami yaitu pelayanan konsultasi dengan waktu balas keluhan yang cukup cepat. Anda tidak perlu menunggu balasan terlalu lama.</p>
                 </div>
             </x-card>
         </div>
@@ -51,15 +51,15 @@
                 <ul class="mt-8 [&>li]:mt-2">
                     <li class="flex items-center space-x-4">
                         <img src="{{ asset('UI/Group 1317.svg') }}" alt="">
-                        <p class="text-neutral-500">Kualitas obat terbaik</p>
+                        <p class="text-neutral-500">Kualitas dokter terbaik</p>
                     </li>
                     <li class="flex items-center space-x-4">
                         <img src="{{ asset('UI/Group 1317.svg') }}" alt="">
-                        <p class="text-neutral-500">Fast respon</p>
+                        <p class="text-neutral-500">Respon cepat</p>
                     </li>
                     <li class="flex items-center space-x-4">
                         <img src="{{ asset('UI/Group 1317.svg') }}" alt="">
-                        <p class="text-neutral-500">Antar obat cepat tanpa menunggu lama</p>
+                        <p class="text-neutral-500">Pelayanan terbaik</p>
                     </li>
                     <li class="flex items-center space-x-4">
                         <img src="{{ asset('UI/Group 1317.svg') }}" alt="">

@@ -3,16 +3,14 @@
         <div class="w-full grid grid-rows-2 md:grid-rows-none lg:grid-cols-8 gap-8">
             <div class="lg:col-span-6">
                 <h1 class="text-2xl font-semibold">Healthier</h1>
-                <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ipsa incidunt doloribus quo sit, neque laboriosam a commodi maxime facere saepe at obcaecati ducimus aut sapiente nulla fugiat iste cupiditate!</p>
+                <p class="mt-2">Healthier merupakan website konsultasi online, yang memungkinkan pengguna untuk dapat melakukan konsultasi penyakit secara online bersama dengan para dokter ahli dibidangnya.</p>
             </div>
             <div class="mt-6 lg:mt-0">
-                <h3 class="text-lg font-semibold">Company Info</h3>
+                <h3 class="text-lg font-semibold">Menu</h3>
                 <ul class="mt-2 flex flex-col gap-2">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Artikel</a></li>
-                    <li><a href="">Pesan Obat</a></li>
-                    <li><a href="">Konsultasi</a></li>
-                    <li><a href="">Membership</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/konsultasi">Konsultasi</a></li>
+                    <li><a href="/membership">Membership</a></li>
                 </ul>
             </div>
             <div class="mt-6 lg:mt-0">
@@ -25,6 +23,6 @@
             </div>
         </div>
         <div class="w-full h-[1px] mt-6 bg-neutral-500"></div>
-        <p class="font-medium py-8 mt-6 lg:mt-0 lg:text-center">Copyright &copy; Healthier 2024</p>
+        <p class="font-medium py-8 mt-6 lg:mt-0 lg:text-center">Copyright &copy; Healthier {{ date('Y') }}</p>
     </div>
 </footer>
