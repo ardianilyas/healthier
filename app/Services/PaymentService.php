@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Models\User;
 use App\Models\Membership;
+use App\Models\MembershipLimit;
+use App\Models\Plan;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,6 +65,20 @@ class PaymentService
         $membership->end_date = now()->addMonth();
         $membership->status = 'active';
         $membership->save();
+
+        return $membership;
+    }
+
+    public function createMembershipLimit($transaction) {
+        $membership = Membership::where('id', $transaction->transactionable_id)->first();
+        $plan = Plan::where('id', $membership->plan_id)->first();
+        $userId = $membership->user_id;
+
+        MembershipLimit::create([
+            'user_id' => $userId,
+            'membership_id' => $membership->id,
+            'limit' => $plan->limit,
+        ]);
     }
 
     public function updateUserStatus($membership) {

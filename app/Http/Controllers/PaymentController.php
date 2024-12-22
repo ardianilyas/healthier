@@ -90,7 +90,8 @@ class PaymentController extends Controller
             $transaction->payment_type = $notification->payment_type;
 
             if($transaction->transactionable_type == 'App\Models\Membership') {
-                $membership = $this->paymentService->createMembership($transaction);
+                $membership = $this->paymentService->updateMembership($transaction);
+                $this->paymentService->createMembershipLimit($transaction);
                 $this->paymentService->updateUserStatus($membership);
             }
         } elseif($transactionStatus == 'pending') {

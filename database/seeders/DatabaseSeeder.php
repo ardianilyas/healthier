@@ -51,13 +51,15 @@ class DatabaseSeeder extends Seeder
         Plan::create([
             'name' => "Premium",
             'description' => "Premium membership plan",
-            'price' => 100000
+            'price' => 100000,
+            'limit' => 2,
         ]);
 
         Plan::create([
             'name' => "Diamond",
             'description' => "Diamond membership plan",
-            'price' => 150000
+            'price' => 180000,
+            'limit' => 4,
         ]);
 
         Membership::factory()->create([

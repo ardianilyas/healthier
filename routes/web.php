@@ -56,7 +56,7 @@ Route::middleware(['auth'])->prefix('balasan')->name('balasan.')->group(function
 });
 
 // Route payment callback (webhook)
-Route::post('payment-callback', [PaymentController::class, 'handleCallback']);
+Route::post('/payment-callback', [PaymentController::class, 'handleCallback']);
 
 Route::middleware('auth')->group(function () {
 
