@@ -14,6 +14,7 @@ use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\KaryawanController;
+use App\Http\Controllers\Admin\TransaksiController;
 use App\Http\Controllers\BalasanController;
 
 // Auth::loginUsingId(1);
@@ -84,9 +85,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/', function () {
             return view('dashboard.index');
         })->name('index');
+        
+        Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 
         Route::middleware('role_or_permission:Admin|Developer')->group(function() {
-            Route::resource('obat', ObatController::class);
+            // Route::resource('obat', ObatController::class);
             Route::resource('karyawan', KaryawanController::class);
         });
     });
