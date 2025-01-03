@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Role;
 class KaryawanController extends Controller
 {
     public function index() {
-        $users = User::role(['developer', 'admin', 'pegawai', 'kurir', 'dokter'])->get();
+        $users = User::role(['developer', 'admin', 'dokter'])->get();
         return view('dashboard.karyawan.index', compact('users'));
     }
 

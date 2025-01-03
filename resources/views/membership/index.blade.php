@@ -24,7 +24,7 @@
         @foreach ($plans as $plan)
             <x-card>
                 <h1 class="text-2xl text-neutral-800 font-semibold">{{ $plan->name }}</h1>
-                <p class="mt-2 text-lg text-neutral-500">Rp. {{ Number::format($plan->price, locale:'id') }}</p>
+                <p class="mt-2 text-lg text-neutral-500">Rp. {{ Number::format($plan->price, locale:'id') }} / bulan</p>
                 <p class="mb-6 text-neutral-600 line-clamp-2 font-light">{{ $plan->description }}</p>
                 
                 @auth

@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\KaryawanController;
 use App\Http\Controllers\Admin\TransaksiController;
 use App\Http\Controllers\BalasanController;
+use App\Models\Balasan;
 
 // Auth::loginUsingId(1);
 
@@ -83,7 +84,10 @@ Route::middleware('auth')->group(function () {
     // Dashboard routes
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::get('/', function () {
-            return view('dashboard.index');
+            $transactionCount = Auth::user()->transactions->count();
+            $membershipCount = Auth::user()->memberships->count();
+            $balasanCount = Balasan::whereYear('created_at', now()->year)->whereMonth('created_at', now()->month)->count();
+            return view('dashboard.index', compact('transactionCount', 'membershipCount', 'balasanCount'));
         })->name('index');
         
         Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');

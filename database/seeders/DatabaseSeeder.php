@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
 
         $user = User::factory()->create([
             'name' => 'Ardian Ilyas',
-            'email' => 'ardian@developer.com',
+            'email' => 'admin@developer.com',
             'password' => bcrypt('developer'),
-            'is_membership' => true,
+            'is_membership' => false,
         ]);
         
         User::factory(5)->create();
@@ -34,44 +34,29 @@ class DatabaseSeeder extends Seeder
 
         $developer = Role::create(['name' => 'Developer']);
         $admin = Role::create(['name' => 'Admin']);
-        $pegawai = Role::create(['name' => 'Pegawai']);
-        $kurir = Role::create(['name' => 'Kurir']);
         $dokter = Role::create(['name' => 'Dokter']);
 
         $user->assignRole($developer);
         $userDokter = User::factory()->create([
             'name' => 'Leonore Lynn',
-            'email' => 'leonore@healthier.com',
+            'email' => 'dokter@healthier.com',
             'password' => bcrypt('password'),
-            'is_membership' => true,
+            'is_membership' => false,
         ]);
         $userDokter->assignRole($dokter);
 
-        // Plan::factory(3)->create();
         Plan::create([
             'name' => "Premium",
-            'description' => "Premium membership plan",
+            'description' => "Premium membership plan 2 kali konsultasi per bulan",
             'price' => 100000,
             'limit' => 2,
         ]);
 
         Plan::create([
             'name' => "Diamond",
-            'description' => "Diamond membership plan",
+            'description' => "Diamond membership plan 4 kali konsultasi per bulan",
             'price' => 180000,
             'limit' => 4,
         ]);
-
-        Membership::factory()->create([
-            'user_id' => 1,
-            'plan_id' => 1,
-            'status' => 'active',
-            'start_date' => now(),
-            'end_date' => now(),
-        ]);
-        
-        Membership::factory(3)->create();
-        Cart::factory(1)->create();
-        CartItem::factory(1)->create();
     }
 }

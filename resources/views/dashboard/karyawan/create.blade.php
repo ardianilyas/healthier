@@ -2,7 +2,7 @@
 
 @section('heading')
 <x-h1>Tambah data karyawan / dokter</x-h1>
-<x-p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt molestiae modi.</x-p>
+<x-p>Form tambah data karyawan / dokter</x-p>
 @endsection
 
 @section('content')    

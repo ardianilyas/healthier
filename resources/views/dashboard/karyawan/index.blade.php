@@ -2,7 +2,7 @@
 
 @section('heading')
 <x-h1>List karyawan</x-h1>
-<x-p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt molestiae modi.</x-p>
+<x-p>List data karyawan Healthier.</x-p>
 @endsection
 
 @section('content')    
