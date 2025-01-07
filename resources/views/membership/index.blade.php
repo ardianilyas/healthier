@@ -9,7 +9,7 @@
         {{-- <p>{{ Auth::user()->membership->transactions }}</p> --}}
         @if (Auth::user()->memberships->count() > 0)    
             <x-card class="max-w-lg mt-4">
-                Your last membership : <b>{{ Auth::user()->membership->plan->name }}</b> end at {{ \Carbon\Carbon::parse(Auth::user()->membership->end_date)->format("l, d F Y") }}
+                Status membership terakhir : <b>{{ Auth::user()->membership->plan->name }}</b> berakhir pada {{ \Carbon\Carbon::parse(Auth::user()->membership->end_date)->format("l, d F Y") }}
                 <p class="mt-4 text-red-500 text-sm">Note : Anda tidak bisa membeli membership jika status Anda saat ini sudah menjadi membership (tunggu membership Anda berakhir).</p>
             </x-card>
         @endif
@@ -24,7 +24,7 @@
         @foreach ($plans as $plan)
             <x-card>
                 <h1 class="text-2xl text-neutral-800 font-semibold">{{ $plan->name }}</h1>
-                <p class="mt-2 text-lg text-neutral-500">Rp. {{ Number::format($plan->price, locale:'id') }} / bulan</p>
+                <p class="mt-2 text-lg text-neutral-500">Rp. {{ number_format($plan->price, 0, 0, '.') }} / bulan</p>
                 <p class="mb-6 text-neutral-600 line-clamp-2 font-light">{{ $plan->description }}</p>
                 
                 @auth
